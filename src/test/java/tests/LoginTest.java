@@ -1,5 +1,6 @@
 package tests;
 
+import base.BaseTest;
 import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,25 +9,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginTest {
+public class LoginTest extends BaseTest {
 
 
-    public WebDriver Driver;
+
     @Test
     public void MetodaLogin(){
 
         // Setam driverul de chrome
-        System.setProperty("webdriver.chrome.driver" , "src/test/resources/driver/chromedriver");
+
 
         // Deschidem un browser chrome
-        Driver=new ChromeDriver();
+
 
 
         //Accesam un URL
-        Driver.get("http://demo.automationtesting.in/Index.html");
+
 
         //Maximize page
-        Driver.manage().window().maximize();
+
 
         //Identificam butonul "Sign In" ID CLASS LINK VALUE XPATH CSS
         WebElement signInElement=Driver.findElement(By.id("btn1"));
@@ -65,7 +66,7 @@ public class LoginTest {
         //Dif intre close si quit : close inchide cate un tab, iar quit toata pagina
         //Daca ai un sigur test nu este nici o diferenta
        // Driver.close();
-        Driver.quit();
+
 
 
     }
