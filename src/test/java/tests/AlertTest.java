@@ -1,18 +1,16 @@
 package tests;
 
 import base.BaseTest;
-import jdk.internal.org.objectweb.asm.ClassReader;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class alertTest extends BaseTest {
+public class AlertTest extends BaseTest {
 
 
     @Test

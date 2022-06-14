@@ -6,10 +6,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.time.Year;
 import java.util.List;
 
-public class registerTest {
+public class RegisterTest {
 
      public WebDriver Driver;
 
