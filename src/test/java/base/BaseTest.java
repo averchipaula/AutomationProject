@@ -20,9 +20,9 @@ public class BaseTest {
     }
 
 
-    @After
-    public void Cleaner(){
-        Driver.quit();
+   // @After
+   // public void Cleaner(){
+      //  Driver.quit();
     }
 
-}
+//}

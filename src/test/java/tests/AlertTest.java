@@ -16,8 +16,6 @@ public class AlertTest extends BaseTest {
     @Test
     public void registerTest(){
 
-
-
         WebElement skipSignInElement=Driver.findElement(By.id("btn2"));
         skipSignInElement.click();
         String expectedPage= "Register";
@@ -34,6 +32,7 @@ public class AlertTest extends BaseTest {
         Driver.navigate().to("http://demo.automationtesting.in/Alerts.html");
 
         List<WebElement> alertList = Driver.findElements(By.cssSelector(".analystic"));
+
         alertList.get(0).click();
         WebElement simpleAlertElement = Driver.findElement(By.xpath("//button[@class= 'btn btn-danger']"));
         simpleAlertElement.click();

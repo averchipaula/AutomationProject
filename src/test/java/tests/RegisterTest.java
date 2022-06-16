@@ -1,5 +1,6 @@
 package tests;
 
+import base.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.*;
@@ -8,17 +9,14 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class RegisterTest {
+public class RegisterTest extends BaseTest {
 
-     public WebDriver Driver;
+
 
      @Test
 
      public void registerTest() {
-          System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver");
-          Driver = new ChromeDriver();
-          Driver.get("http://demo.automationtesting.in/Index.html");
-          Driver.manage().window().maximize();
+
 
           WebElement signInElement = Driver.findElement(By.id("btn2"));
           signInElement.click();
@@ -80,6 +78,7 @@ public class RegisterTest {
           countryElement.click();
 
           WebElement clickCountryElement = Driver.findElement(By.id("select2-country-container"));
+          clickCountryElement.click();
 
           WebElement selectCountryElement =Driver.findElement(By.xpath("//input[@role='textbox']"));
           selectCountryElement.sendKeys("Denmark");
@@ -123,7 +122,7 @@ public class RegisterTest {
 
 
 
-          Driver.quit();
+
 
 
      }
