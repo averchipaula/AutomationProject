@@ -1,6 +1,8 @@
 package tests;
 
+import HelpMethods.ElementMethods;
 import base.BaseTest;
+import org.checkerframework.checker.units.qual.m;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.*;
@@ -17,9 +19,11 @@ public class RegisterTest extends BaseTest {
 
      public void registerTest() {
 
+          ElementMethods elementMethods = new ElementMethods(Driver);
+
 
           WebElement signInElement = Driver.findElement(By.id("btn2"));
-          signInElement.click();
+          elementMethods.clickElement(signInElement);
 
           String expectedPage = "Register";
           String actualPage = Driver.getTitle();
@@ -27,35 +31,44 @@ public class RegisterTest extends BaseTest {
 
           WebElement firstNameElement = Driver.findElement(By.xpath("//input[@ng-model='FirstName']"));
           String nameValue = "Paula";
-          firstNameElement.sendKeys(nameValue);
+          //firstNameElement.sendKeys(nameValue);
+          elementMethods.fillElement(firstNameElement,nameValue);
 
           WebElement lastNameElement = Driver.findElement(By.xpath("//input[@ng-model='LastName']"));
           String lastValue = "Averchi";
-          lastNameElement.sendKeys(lastValue);
+          //lastNameElement.sendKeys(lastValue);
+          elementMethods.fillElement(lastNameElement,lastValue);
 
           WebElement adressElement = Driver.findElement(By.xpath("//textarea[@ng-model='Adress']"));
           String addressValue = "Cluj Napoca, Taietura Turcului";
-          adressElement.sendKeys(addressValue);
+          //adressElement.sendKeys(addressValue);
+          elementMethods.fillElement(adressElement,addressValue);
 
           WebElement emailElement = Driver.findElement(By.cssSelector("input[ng-model='EmailAdress']"));
           String emailValue = "paula@gmail.com";
-          emailElement.sendKeys(emailValue);
+          //emailElement.sendKeys(emailValue);
+          elementMethods.fillElement(emailElement,emailValue);
 
           WebElement phoneElement = Driver.findElement(By.cssSelector("input[ng-model='Phone']"));
           String phoneValue = "0752 615 007";
-          phoneElement.sendKeys(phoneValue);
+          //phoneElement.sendKeys(phoneValue);
+          elementMethods.fillElement(phoneElement,phoneValue);
 
           WebElement genderElement = Driver.findElement(By.cssSelector("input[value='FeMale']"));
-          genderElement.click();
+          //genderElement.click();
+          elementMethods.clickElement(genderElement);
 
           WebElement hobbiefirstElement = Driver.findElement(By.id("checkbox1"));
-          hobbiefirstElement.click();
+          //hobbiefirstElement.click();
+          elementMethods.clickElement(hobbiefirstElement);
 
           WebElement hobbiesecondElement = Driver.findElement(By.id("checkbox2"));
-          hobbiesecondElement.click();
+         // hobbiesecondElement.click();
+          elementMethods.clickElement(hobbiesecondElement);
 
           WebElement hobbielastElement = Driver.findElement(By.id("checkbox3"));
-          hobbielastElement.click();
+          //hobbielastElement.click();
+          elementMethods.clickElement(hobbielastElement);
 
           JavascriptExecutor js = (JavascriptExecutor) Driver;
           js.executeScript("window.scrollBy(0,250)", "");
@@ -72,49 +85,59 @@ public class RegisterTest extends BaseTest {
                index++;
           }
 
-          genderElement.click();
+          //genderElement.click();
+          elementMethods.clickElement(genderElement);
 
-          WebElement countryElement=Driver.findElement(By.xpath("//span[@role='combobox']"));
-          countryElement.click();
 
-          WebElement clickCountryElement = Driver.findElement(By.id("select2-country-container"));
-          clickCountryElement.click();
+          WebElement clickCountryElement = Driver.findElement(By.xpath("//span[@role='combobox']"));
+         // clickCountryElement.click();
+          elementMethods.clickElement(clickCountryElement);
 
-          WebElement selectCountryElement =Driver.findElement(By.xpath("//input[@role='textbox']"));
-          selectCountryElement.sendKeys("Denmark");
-          selectCountryElement.sendKeys(Keys.ENTER);
+         // WebElement countryDDElement = Driver.findElement(By.cssSelector("span[class='select2-selection select2-selection--single']"));
+         // countryDDElement.click();
+         // WebElement countryElement = Driver.findElement(By.cssSelector("input[class='select2-search__field']"));
+         // String countryfieldInput = "Japan";
+        //  countryElement.sendKeys(countryfieldInput);
+        //  countryElement.sendKeys(Keys.ENTER);                    // In cazu asta se poate cu for sau while ca la Languages
 
 
           WebElement skillsElement = Driver.findElement(By.id("Skills"));
-          Select skillsDropdown = new Select(skillsElement);
-          skillsDropdown.selectByVisibleText("APIs");
+         // Select skillsDropdown = new Select(skillsElement);
+          //skillsDropdown.selectByVisibleText("APIs");
+          elementMethods.selectTextElement(skillsElement,"Java");
 
 
           WebElement yearElement = Driver.findElement(By.id("yearbox"));
-          yearElement.click();
+          //yearElement.click();
           Select yearDropdown= new Select(yearElement);
-          yearDropdown.selectByValue("1991");
+          yearDropdown.selectByVisibleText("1991");
+          elementMethods.selectValueElement(yearElement,"1952");
 
           WebElement monthElement = Driver.findElement(By.cssSelector("select[ng-model='monthbox']"));
-          monthElement.click();
+          //monthElement.click();
           Select monthDropdown= new Select(monthElement);
           monthDropdown.selectByVisibleText("March");
+          elementMethods.selectValueElement(monthElement,"March");
 
           WebElement dayElement = Driver.findElement(By.id("daybox"));
           Select dayDropdown = new Select(dayElement);
-          dayDropdown.selectByValue("31");
+          dayDropdown.selectByVisibleText("31");
+          elementMethods.selectValueElement(dayElement,"31");
 
           WebElement passwordElement = Driver.findElement(By.id("firstpassword"));
           String PasswordValue="parola";
-          passwordElement.sendKeys(PasswordValue);
+         // passwordElement.sendKeys(PasswordValue);
+          elementMethods.fillElement(passwordElement,PasswordValue);
 
           WebElement confPassElement= Driver.findElement(By.id("secondpassword"));
           String confPassValue="parola";
-          confPassElement.sendKeys(confPassValue);
+          //confPassElement.sendKeys(confPassValue);
+          elementMethods.fillElement(confPassElement,confPassValue);
 
 
           WebElement imageElement = Driver.findElement(By.id("imagetrgt"));
-          imageElement.click();
+          //imageElement.click();
+          elementMethods.clickElement(imageElement);
 
           WebElement chooseFileElement = Driver.findElement(By.xpath("//input['margin-top: " +
                   "10px!important;']"));

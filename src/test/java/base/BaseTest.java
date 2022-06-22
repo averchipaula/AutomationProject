@@ -8,11 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BaseTest {
 
     public WebDriver Driver;
-    @Before
-    public void setUp(){
-        System.setProperty("webdriver.chrome.driver" , "src/test/resources/driver/chromedriver");
 
-        Driver=new ChromeDriver();
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver");
+
+        Driver = new ChromeDriver();
 
         Driver.get("http://demo.automationtesting.in/Index.html");
 
@@ -20,9 +21,12 @@ public class BaseTest {
     }
 
 
-   // @After
-   // public void Cleaner(){
-      //  Driver.quit();
+    @After
+    public void Cleaner() {
+
+        Driver.quit();
+
+
     }
 
-//}
+}

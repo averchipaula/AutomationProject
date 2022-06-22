@@ -1,5 +1,6 @@
 package tests;
 
+import HelpMethods.ElementMethods;
 import base.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,18 +17,23 @@ public class AlertTest extends BaseTest {
     @Test
     public void registerTest(){
 
+        ElementMethods elementMethods = new ElementMethods(Driver);
+
         WebElement skipSignInElement=Driver.findElement(By.id("btn2"));
-        skipSignInElement.click();
+        //skipSignInElement.click();
+        elementMethods.clickElement(skipSignInElement);
         String expectedPage= "Register";
         String actualPage= Driver.getTitle();
         assertTrue("The expected page was not diplayed", expectedPage.equals(actualPage));
 
         WebElement switchElement = Driver.findElement(By.xpath("//a[text()='SwitchTo']"));
-        Actions action = new Actions(Driver);
-        action.moveToElement(switchElement).build().perform();
+        //Actions action = new Actions(Driver);
+        //action.moveToElement(switchElement).build().perform();
+         elementMethods.hoverElement(switchElement);
 
         WebElement alertsElement = Driver.findElement(By.xpath("//a[text()='Alerts']"));
-        alertsElement.click();
+        //alertsElement.click();
+        elementMethods.clickElement(alertsElement);
 
         Driver.navigate().to("http://demo.automationtesting.in/Alerts.html");
 
@@ -66,31 +72,7 @@ public class AlertTest extends BaseTest {
 
 
 
-        //WebElement simpleAlertElement = Driver.findElement(By.xpath("//a[text()='Alert with OK ']"));
-        //simpleAlertElement.click();
 
-        //Driver.findElement(By.xpath("//button[@class= 'btn btn-danger']")).click();
-        //Alert simpleAlert = Driver.switchTo().alert();
-        //simpleAlert.accept();
-
-
-        //WebElement alertButtonElement = Driver.findElement(By.xpath("//a[text()='Alert with OK & Cancel ']"));
-        //alertButtonElement.click();
-        //Driver.findElement(By.xpath("//button[@class= 'btn btn-primary']")).click();
-        //Alert dismissAlert = Driver.switchTo().alert();
-        //String alertText = dismissAlert.getText();
-        //System.out.println("Alert text is " + alertText);
-       // dismissAlert.dismiss();
-
-
-       // WebElement promptAlertElement= Driver.findElement(By.xpath("//a[text()='Alert with Textbox '] "));
-        //promptAlertElement.click();
-       // Driver.findElement(By.xpath("//button[@class='btn btn-info']")).click();
-       // Alert promptAlert = Driver.switchTo().alert();
-       // String promptText = promptAlert.getText();
-       // System.out.println("Prompt text is " +promptText);
-       // promptAlert.sendKeys("Test");
-       // promptAlert.accept();
 
 
 

@@ -1,5 +1,6 @@
 package tests;
 
+import HelpMethods.ElementMethods;
 import base.BaseTest;
 import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
@@ -16,6 +17,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void MetodaLogin(){
 
+        ElementMethods elementMethods = new ElementMethods(Driver);
+
         // Setam driverul de chrome
 
 
@@ -31,7 +34,9 @@ public class LoginTest extends BaseTest {
 
         //Identificam butonul "Sign In" ID CLASS LINK VALUE XPATH CSS
         WebElement signInElement=Driver.findElement(By.id("btn1"));
-        signInElement.click();
+        //signInElement.click();
+        elementMethods.clickElement(signInElement);
+
 
         // Identificam butonul de email
         WebElement EmailElement=Driver.findElement(By.xpath(
@@ -41,14 +46,14 @@ public class LoginTest extends BaseTest {
 
         //Identificam butonul password
 
-        WebElement PasswordElement=Driver.findElement
-                (By.xpath("//input[@placeholder='Password']"));
+        WebElement PasswordElement=Driver.findElement(By.xpath("//input[@placeholder='Password']"));
         String PasswordValue="parola";
         PasswordElement.sendKeys(PasswordValue);
 
         //Click pe enter
         WebElement EnterElement=Driver.findElement(By.id("enterbtn"));
-        EnterElement.click();
+        //EnterElement.click();
+        elementMethods.clickElement(EnterElement);
 
         //Validam pagina de login
         String expectedPage="SignIn";
