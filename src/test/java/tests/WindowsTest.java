@@ -1,6 +1,8 @@
 package tests;
 
 import HelpMethods.ElementMethods;
+import HelpMethods.PageMethods;
+import HelpMethods.TabMethods;
 import base.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,6 +22,10 @@ public class WindowsTest extends BaseTest {
     public void windowsTest() {
 
         ElementMethods elementMethods = new ElementMethods(Driver);
+
+        PageMethods pageMethods = new PageMethods(Driver);
+
+        TabMethods tabMethods = new TabMethods(Driver);
 
         WebElement skipSignInElement = Driver.findElement(By.id("btn2"));
         //skipSignInElement.click();
@@ -97,6 +103,12 @@ public class WindowsTest extends BaseTest {
 
        //  Driver.getWindowHandles();
        // Driver.switchTo().defaultContent();
+
+
+        //POM= Page object model
+        //1. Actions
+        //2. Elements
+        //3. Input data
 
 
     }

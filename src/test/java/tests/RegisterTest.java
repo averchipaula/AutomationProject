@@ -1,6 +1,7 @@
 package tests;
 
 import HelpMethods.ElementMethods;
+import HelpMethods.PageMethods;
 import base.BaseTest;
 import org.checkerframework.checker.units.qual.m;
 import org.junit.Assert;
@@ -20,14 +21,17 @@ public class RegisterTest extends BaseTest {
      public void registerTest() {
 
           ElementMethods elementMethods = new ElementMethods(Driver);
+          PageMethods pageMethods = new PageMethods(Driver);
 
 
           WebElement signInElement = Driver.findElement(By.id("btn2"));
           elementMethods.clickElement(signInElement);
 
           String expectedPage = "Register";
-          String actualPage = Driver.getTitle();
-          Assert.assertTrue("The expected page was not displayed", expectedPage.equals(actualPage));
+         // String actualPage = Driver.getTitle();
+         // Assert.assertTrue("The expected page was not displayed", expectedPage.equals(actualPage));
+          pageMethods.validateTitlePage(expectedPage);
+
 
           WebElement firstNameElement = Driver.findElement(By.xpath("//input[@ng-model='FirstName']"));
           String nameValue = "Paula";
@@ -70,8 +74,11 @@ public class RegisterTest extends BaseTest {
           //hobbielastElement.click();
           elementMethods.clickElement(hobbielastElement);
 
-          JavascriptExecutor js = (JavascriptExecutor) Driver;
-          js.executeScript("window.scrollBy(0,250)", "");
+         // JavascriptExecutor js = (JavascriptExecutor) Driver;
+         // js.executeScript("window.scrollBy(0,250)", "");
+          pageMethods.scrollDownPage(250);
+
+
 
           WebElement languageElement = Driver.findElement(By.id("msdd"));
           languageElement.click();
