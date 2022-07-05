@@ -1,23 +1,22 @@
 package tests;
 
 import base.BaseTest;
+import base.Hooks;
 import org.junit.Test;
 import pages.IndexPage;
 import pages.LogInPage;
 import pages.LogInPage;
 
-public class LogInTest extends BaseTest {
+public class LogInTest extends Hooks {
 
     @Test
     public void metodaLogin(){
-
-
         IndexPage indexPage = new IndexPage(getDriver());
         indexPage.clickSignIn();
 
         //validam pagina de login
         LogInPage loginPage = new LogInPage(getDriver());
-        loginPage.loginInvalidProcess("SignIn","email@proba.com","Proba123#","Invalid User Name or PassWord");
+        loginPage.loginInvalidProcess(testData);
 
     }
 }

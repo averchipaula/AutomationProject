@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.HashMap;
+
 public class LogInPage {
 
     public WebDriver driver;
@@ -29,11 +31,11 @@ public class LogInPage {
     @FindBy(id = "errormsg")
     private WebElement errorMessageElement;
 
-    public void loginInvalidProcess(String page, String email, String password, String error){
-        pageMethods.validateTitlePage(page);
-        elementMethods.fillElement(emailElement, email);
-        elementMethods.fillElement(passwordElement, password);
+    public void loginInvalidProcess(HashMap<String, String> values){
+        pageMethods.validateTitlePage(values.get("loginPage"));
+        elementMethods.fillElement(emailElement,values.get("email"));
+        elementMethods.fillElement(passwordElement, values.get("password"));
         elementMethods.clickElement(enterElement);
-        elementMethods.validateElementText(errorMessageElement, error);
+        elementMethods.validateElementText(errorMessageElement, values.get("errorMessage"));
     }
 }

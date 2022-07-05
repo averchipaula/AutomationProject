@@ -4,6 +4,7 @@ import HelpMethods.AlertMethods;
 import HelpMethods.ElementMethods;
 import HelpMethods.PageMethods;
 import base.BaseTest;
+import base.Hooks;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.*;
@@ -16,7 +17,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class AlertTest extends BaseTest {
+public class AlertTest extends Hooks {
 
     @Test
     public void registerTest() {
