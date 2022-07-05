@@ -21,13 +21,13 @@ public class LogInPage {
     }
 
     @FindBy(xpath = "//input[@placeholder='E mail']")
-    public WebElement emailElement;
+    private WebElement emailElement;
     @FindBy(xpath = "//input[@placeholder='Password']")
-    public WebElement passwordElement;
+    private WebElement passwordElement;
     @FindBy(id = "enterbtn")
-    public WebElement enterElement;
+    private WebElement enterElement;
     @FindBy(id = "errormsg")
-    public WebElement errorMessageElement;
+    private WebElement errorMessageElement;
 
     public void loginInvalidProcess(String page, String email, String password, String error){
         pageMethods.validateTitlePage(page);
