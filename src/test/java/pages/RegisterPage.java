@@ -1,6 +1,7 @@
 package pages;
 
 import HelpMethods.ElementMethods;
+import objects.RegisterObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -75,28 +76,24 @@ public class RegisterPage extends BasePage{
         pageMethods.navigateToURL("http://demo.automationtesting.in/Windows.html");
     }
 
-    public void registerValid(String firstName, String lastName, String address,
-                              String phone, String email, String language,
-                              String country, String skills, String year,
-                              String month, String day, String password,
-                              String confirmPassword, String file){
-        fillFirstName(firstName);
-        fillLastName(lastName);
-        fillAddress(address);
-        fillPhone(phone);
-        fillEmail(email);
+    public void registerValid(RegisterObject RegisterData){
+        fillFirstName(RegisterData.getFirstName());
+        fillLastName(RegisterData.getLastName());
+        fillAddress(RegisterData.getAddress());
+        fillPhone(RegisterData.getPhone());
+        fillEmail(RegisterData.getEmailAddress());
         clickGender();
         selectHobbie();
-        languageElement(language);
+        languageElement(RegisterData.getLanguages());
         clickGender();
-        selectCountry(country);
-        skillsDropDown(skills);
-        yearDropDown(year);
-        monthDropDown(month);
-        dayDropDown(day);
-        fillPassword(password);
-        fillConfirmPassword(confirmPassword);
-        importFile(file);
+        selectCountry(RegisterData.getSelectCountry());
+        skillsDropDown(RegisterData.getSkills());
+        yearDropDown(RegisterData.getYear());
+        monthDropDown(RegisterData.getMonth());
+        dayDropDown(RegisterData.getDay());
+        fillPassword(RegisterData.getPassword());
+        fillConfirmPassword(RegisterData.getConfirmPassword());
+        importFile(RegisterData.getFile());
     }
 
     public void registerInvalidMandatoryFields( String address, String language,

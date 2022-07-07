@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import base.Hooks;
+import objects.LoginObject;
 import org.junit.Test;
 import pages.IndexPage;
 import pages.LogInPage;
@@ -11,12 +12,14 @@ public class LogInTest extends Hooks {
 
     @Test
     public void metodaLogin(){
+        LoginObject loginData = new LoginObject(testData);
+
         IndexPage indexPage = new IndexPage(getDriver());
         indexPage.clickSignIn();
 
         //validam pagina de login
         LogInPage loginPage = new LogInPage(getDriver());
-        loginPage.loginInvalidProcess(testData);
+        loginPage.loginInvalidProcess(loginData);
 
     }
 }

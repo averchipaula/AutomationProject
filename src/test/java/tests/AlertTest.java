@@ -5,6 +5,7 @@ import HelpMethods.ElementMethods;
 import HelpMethods.PageMethods;
 import base.BaseTest;
 import base.Hooks;
+import objects.AlertObject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.*;
@@ -21,6 +22,7 @@ public class AlertTest extends Hooks {
 
     @Test
     public void registerTest() {
+        AlertObject alertdata = new AlertObject(testData);
 
         IndexPage indexPage = new IndexPage(getDriver());
         indexPage.clickSkipSignIn();
@@ -30,9 +32,8 @@ public class AlertTest extends Hooks {
 
         AlertPage alertPage = new AlertPage(getDriver());
         alertPage.dealAlertOk();
-        String expectedMess = "You Pressed Cancel";
-        alertPage.dealAlertOkCancel(expectedMess);
-        alertPage.dealAlertInput("Pau");
+        alertPage.dealAlertOkCancel(alertdata);
+        alertPage.dealAlertInput(alertdata);
 
 
 

@@ -2,6 +2,7 @@ package pages;
 
 import HelpMethods.ElementMethods;
 import HelpMethods.PageMethods;
+import objects.LoginObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,11 +32,11 @@ public class LogInPage {
     @FindBy(id = "errormsg")
     private WebElement errorMessageElement;
 
-    public void loginInvalidProcess(HashMap<String, String> values){
-        pageMethods.validateTitlePage(values.get("loginPage"));
-        elementMethods.fillElement(emailElement,values.get("email"));
-        elementMethods.fillElement(passwordElement, values.get("password"));
+    public void loginInvalidProcess(LoginObject loginData){
+        pageMethods.validateTitlePage(loginData.getLoginPage());
+        elementMethods.fillElement(emailElement, loginData.getEmail());
+        elementMethods.fillElement(passwordElement, loginData.getPassword());
         elementMethods.clickElement(enterElement);
-        elementMethods.validateElementText(errorMessageElement, values.get("errorMessage"));
+        elementMethods.validateElementText(errorMessageElement, loginData.getErrorMessage());
     }
 }

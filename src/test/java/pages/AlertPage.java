@@ -1,6 +1,7 @@
 package pages;
 
 import HelpMethods.ElementMethods;
+import objects.AlertObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,18 +33,18 @@ public class AlertPage extends BasePage{
         alertMethods.acceptAlert();
     }
 
-    public void dealAlertOkCancel(String value){
+    public void dealAlertOkCancel(AlertObject AlertData){
         elementMethods.clickElement(alertOptions.get(1));
         elementMethods.clickElement(alertOkCancelButton);
         alertMethods.cancelAlert();
-        elementMethods.validateElementText(alertOkCancelMessage,value);
+        elementMethods.validateElementText(alertOkCancelMessage,AlertData.getAlertmessage());
     }
 
-    public void dealAlertInput(String value){
+    public void dealAlertInput(AlertObject AlertData){
         elementMethods.clickElement(alertOptions.get(2));
         elementMethods.clickElement(alertaTextButton);
-        alertMethods.fillAcceptAlert(value);
-        String expectValue="Hello "+value+" How are you today";
+        alertMethods.fillAcceptAlert(AlertData.getAlerttext());
+        String expectValue="Hello "+AlertData.getAlerttext()+" How are you today";
         elementMethods.validateElementText(alertaTextMessage,expectValue);
     }
 
