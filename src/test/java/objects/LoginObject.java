@@ -2,7 +2,7 @@ package objects;
 
 import java.util.HashMap;
 
-public class LoginObject {
+public class LoginObject implements InterfaceObject{
 
     private String loginPage;
     private String email;
@@ -16,6 +16,7 @@ public class LoginObject {
         populateObject(inputData);
     }
 
+     @Override
     public void populateObject(HashMap<String, String> inputData){
         for (String key: inputData.keySet()){
             switch (key){

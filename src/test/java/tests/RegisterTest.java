@@ -37,6 +37,7 @@ public class RegisterTest extends Hooks {
                //   "Proba123@",
                //   "/Users/paula/IdeaProjects/AutomationFramework/src/test/resources/IMG_14842.JPG");
 
+
      }
 }
 

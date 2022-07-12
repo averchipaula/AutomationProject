@@ -1,14 +1,10 @@
 package pages;
 
-import HelpMethods.ElementMethods;
 import objects.RegisterObject;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -62,12 +58,22 @@ public class RegisterPage extends BasePage{
     private WebElement confirmPasswElement;
     @FindBy(id="imagesrc")
     private WebElement imageElement;
+    @FindBy(xpath = "//a[text()='Frames']")
+    private WebElement framesSubmeniu;
+
 
 
     public void goToAlertPage(){
         elementMethods.hoverElement(switchToElement);
         elementMethods.clickElement(alertSubMeniu);
+
         pageMethods.navigateToURL("http://demo.automationtesting.in/Alerts.html");
+    }
+
+    public void goToFramePage(){
+        elementMethods.hoverElement(switchToElement);
+        elementMethods.clickElement(framesSubmeniu);
+        pageMethods.navigateToURL("http://demo.automationtesting.in/Frames.html");
     }
 
     public void goToWindowPage(){

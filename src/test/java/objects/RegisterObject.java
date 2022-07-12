@@ -2,7 +2,7 @@ package objects;
 
 import java.util.HashMap;
 
-public class RegisterObject {
+public class RegisterObject implements InterfaceObject{
 
     private String firstName;
     private String lastName;
@@ -19,7 +19,6 @@ public class RegisterObject {
     private String Day;
     private String Password;
     private String confirmPassword;
-
     private String file;
 
     public RegisterObject(HashMap<String, String> inputData){
@@ -27,7 +26,7 @@ public class RegisterObject {
 
 
     }
-
+    @Override
     public void populateObject(HashMap<String, String> inputData){
         for (String key: inputData.keySet()){
             switch (key){

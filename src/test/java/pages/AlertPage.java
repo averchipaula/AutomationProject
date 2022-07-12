@@ -12,6 +12,7 @@ public class AlertPage extends BasePage{
 
     public AlertPage(WebDriver driver){
         super(driver);
+        pageMethods.waitForSpecificPage("Alerts");
     }
 
     @FindBy(css = ".analystic")
