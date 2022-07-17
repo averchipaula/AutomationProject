@@ -26,4 +26,6 @@ public class FrameMethods {
     }
 
 
+    public void switchToDefaultFrame() {
+    }
 }

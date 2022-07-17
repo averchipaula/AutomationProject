@@ -66,7 +66,6 @@ public class RegisterPage extends BasePage{
     public void goToAlertPage(){
         elementMethods.hoverElement(switchToElement);
         elementMethods.clickElement(alertSubMeniu);
-
         pageMethods.navigateToURL("http://demo.automationtesting.in/Alerts.html");
     }
 
